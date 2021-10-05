@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -11,12 +12,18 @@ export class ProductService {
     images: {
       select: {
         url: true
-      } 
-    }
+      }, 
+    },
   };
 
-  create(data: CreateProductDto) {
-    // return 'This action adds a new product';
+  create(dto: CreateProductDto) {
+    const data: Prisma.ProductCreateInput = {
+      ...dto,
+      images:{
+        create: dto.images,
+      },
+    };
+
     return this.prisma.product.create({
       data,
       include: this._include,

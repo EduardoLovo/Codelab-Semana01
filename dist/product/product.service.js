@@ -19,11 +19,14 @@ let ProductService = class ProductService {
             images: {
                 select: {
                     url: true
-                }
-            }
+                },
+            },
         };
     }
-    create(data) {
+    create(dto) {
+        const data = Object.assign(Object.assign({}, dto), { images: {
+                create: dto.images,
+            } });
         return this.prisma.product.create({
             data,
             include: this._include,

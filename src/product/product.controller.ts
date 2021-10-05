@@ -18,18 +18,18 @@ export class ProductController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.productService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productService.update(+id, updateProductDto);
+  update(@Param('id') id: number, @Body() updateProductDto: UpdateProductDto) {
+    return this.productService.update(id, updateProductDto);
   }
 
   @Delete(':id')
   // HttpCode(HttpStatus.ND_CONTENT)
-  remove(@Param('id') id: string) {
-    return this.productService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.productService.remove(id);
   }
 }

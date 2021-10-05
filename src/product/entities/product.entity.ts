@@ -1,10 +1,10 @@
-import { Prisma } from "@prisma/client";
+import { Image } from "../../image/entities/image.entities.js";
 
-export class Product implements Prisma.ProductUncheckedCreateInput{
+export class Product {
     id?: number;
     name: string;
     price?: number;
-    images?: Prisma.ImageUncheckedCreateNestedManyWithoutProductInput;
+    images?: Image[];
 }
 
 

@@ -28,13 +28,13 @@ let ProductController = class ProductController {
         return this.productService.findAll();
     }
     findOne(id) {
-        return this.productService.findOne(+id);
+        return this.productService.findOne(id);
     }
     update(id, updateProductDto) {
-        return this.productService.update(+id, updateProductDto);
+        return this.productService.update(id, updateProductDto);
     }
     remove(id) {
-        return this.productService.remove(+id);
+        return this.productService.remove(id);
     }
 };
 __decorate([
@@ -54,7 +54,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findOne", null);
 __decorate([
@@ -62,14 +62,14 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_product_dto_1.UpdateProductDto]),
+    __metadata("design:paramtypes", [Number, update_product_dto_1.UpdateProductDto]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "remove", null);
 ProductController = __decorate([
